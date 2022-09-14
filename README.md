@@ -7,7 +7,6 @@
 <br><br>
 
 ## Questions
----
 
 ### **1. Bagan kaitan antara urls.py, views.py, models.py, dan HTML**<br><br>
 
