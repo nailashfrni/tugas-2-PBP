@@ -39,12 +39,10 @@ Pada urls.py di folder project_django, dituliskan: ketika pengguna mengakses pat
 **Poin 4**: Untuk melakukan deployment, saya membuat aplikasi baru di Heroku dan memasukan action secret pada repository GitHub yang sesuai. Kemudian, semua berkas aplikasi dipush ke GitHub. GitHub akan memproses deployment ini dan prosesnya sangat cepat apabila set-up dilakukan dengan benar. Heroku menyediakan opsi auto-deploy agar apabila suatu saat terdapat perubahan isi berkas, aplikasi yang ter-deploy di Heroku akan berubah sendiri sesuai berkas yang telah dipush di GitHub.
 
 ## Tests
----
 
 Untuk melakukan unit testing, jalankan perintah<br>
 ```python manage.py test katalog.tests```
 
 ## Credits
----
 
 Template ini dibuat berdasarkan [PBP Ganjil 2021](https://gitlab.com/PBP-2021/pbp-lab) yang ditulis oleh Tim Pengajar Pemrograman Berbasis Platform 2021 ([@prakashdivyy](https://gitlab.com/prakashdivyy)) dan [django-template-heroku](https://github.com/laymonage/django-template-heroku) yang ditulis oleh [@laymonage, et al.](https://github.com/laymonage). Template ini dirancang sedemikian rupa sehingga mahasiswa dapat menjadikan template ini sebagai awalan serta acuan dalam mengerjakan tugas maupun dalam berkarya.
