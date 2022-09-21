@@ -1,0 +1,120 @@
+[
+    {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 1,
+    "fields": {
+        "watched": "Yes",
+        "title": "Knives Out",
+        "rating": 4,
+        "release_date": "2019-11-27",
+        "review": "This comedic mystery pays homage to old-school detective flicks while also showing a brand-new caper that surprises at every turn."
+    }
+    },
+
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 2,
+        "fields": {
+            "watched": "No",
+            "title": "Back to the Future",
+            "rating": 5,
+            "release_date": "1985-07-03",
+            "review": "'Back to the Future' is the best comic-strip movie I've seen this year. It's well-made, lighthearted and is exactly the right length to give you excitement."    }
+    },
+
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 3,
+        "fields": {
+            "watched": "Yes",
+            "title": "Parasite",
+            "rating": 5,
+            "release_date": "2019-10-11",
+            "review": "Parasite is fantastic. It's clever. It's funny. It's disturbing. And yes, there is a powerful underlying theme of the divide between rich and poor."
+        }
+    },
+
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 4,
+        "fields": {
+            "watched": "Yes",
+            "title": "The Shining",
+            "rating": 3,
+            "release_date": "1980-05-23",
+            "review": "The Shining is incomparably the scariest film I've ever seen in my whole life {and I can tell you I've seen a great deal of horror films}."
+        }
+    },
+
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 5,
+        "fields": {
+            "watched": "Yes",
+            "title": "Black Panther",
+            "rating": 5,
+            "release_date": "2018-02-16",
+            "review": "This pseudo-origin story of Marvel's first Black superhero is a megahit for good reason."
+        }
+    },
+
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 6,
+        "fields": {
+            "watched": "Yes",
+            "title": "Jurrasic Park",
+            "rating": 4,
+            "release_date": "1993-06-11",
+            "review": "An extremely important film. This movie pioneered CGI and it still holds up to this day and looks better than most films nowadays."
+        }
+    },
+
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 7,
+        "fields": {
+            "watched": "Yes",
+            "title": "Get Out",
+            "rating": 4,
+            "release_date": "2017-01-23",
+            "review": "Very clever, brilliantly written and wonderfully uncomfortable neo horror movie, challenging racial stereotypes and viewer' expectations with almost every scene"
+        }
+    },
+
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 8,
+        "fields": {
+            "watched": "No",
+            "title": "Lady Bird",
+            "rating": 4,
+            "release_date": "2017-12-01",
+            "review": "Lady Bird combines wisdom and tenderness, humor and grace. It's light-footed without being lightweight."
+        }
+    },
+
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 9,
+        "fields": {
+            "watched": "Yes",
+            "title": "The Truman Show",
+            "rating": 4,
+            "release_date": "1998-06-05",
+            "review": "This film is an absolute gem. It effortlessly combines everything a classic film should have."
+        }
+    },
+
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 10,
+        "fields": {
+            "watched": "Yes",
+            "title": "Little Women",
+            "rating": 4,
+            "release_date": "2019-12-25",
+            "review": "Superb acting from the cast and a great depiction of the presentation of the era, although it is all a bit too clean and idyllic at times"
+        }
+    }
+]
