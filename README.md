@@ -10,7 +10,7 @@
 
 ### **1. Bagan kaitan antara urls.py, views.py, models.py, dan HTML**<br><br>
 
-![Bagan MTV Django](./assets/MTV%20Django%20(1).jpg)
+![Bagan MTV Django](./assets/Tugas%202/MTV%20Django%20(1).jpg)
 <br>
 Ketika pengguna mengirimkan _request_ untuk mengakses aplikasi, _request_ tersebut pertama-tama diterima oleh urls.py. Berkas urls.py akan melakukan _routing_ atau pemetaan _request_ ke suatu fungsi di views.py yang sesuai sebagai _handler_. Fungsi tersebut dapat melakukan modifikasi data pada models.py, seperti menambah, mengupdate, mengambil, dan menghapus data, tergantung _request_ yang didapatkan. Models.py sendiri berisi class Python yang diibaratkan sebuah tabel dan mendefinisikan atribut yang dimiliki setiap _entry_ data.
 
