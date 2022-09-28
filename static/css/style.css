@@ -1,0 +1,49 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: smaller;
+}
+
+.pretty-table {
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.pretty-table thead th {
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #fff;
+}
+.pretty-table tbody th {
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 20px;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    padding: 0 16px;
+    background-color: #c8cefa;
+    border-radius: 0.25rem;
+    border: 1px solid #0070d2;
+    color: #0070d2;
+    font-size: 13px;
+    line-height: 30px;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #b0b8f7; 
+}
+
+/* CSS References
+https://jsfiddle.net/zinoui/dB93J/
+*/

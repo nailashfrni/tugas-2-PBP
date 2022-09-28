@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+ {% block meta %}
+  <title>To-do List</title>
+ {% endblock meta %}
+
+ {% block content %}
+
+  <h1>To-do List</h1>
+
+  <h4>Username: {{ username }}</h4>
+
+  <button style="color: white; text-decoration: none;"><a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a></button>
+  <br><br>
+
+  {% if messages %}  
+      {% for message in messages %}  
+        <p class="notify">{{ message }}</p>  
+      {% endfor %}  
+    {% endif %}
+
+  <table class="pretty-table">
+    <thead>
+      <th>Tanggal</th>
+      <th>Judul Task</th>
+      <th>Deskripsi Task</th>
+    </thead>
+    <tbody>
+      {% comment %} Add the data below this line {% endcomment %}
+      {% for todo in todolist %}
+          <tr>
+              <th>{{todo.date}}</th>
+              <th>{{todo.title}}</th>
+              <th>{{todo.description}}</th>
+          </tr>
+      {% endfor %}
+    </tbody>
+  </table><br>
+  <button style="color: white; text-decoration: none;"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+ {% endblock content %}
