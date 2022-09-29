@@ -17,7 +17,7 @@ Pada elemen `<form>` perlu dispesifikasikan atribut action dan method. Action me
 
 Kemudian, buat pula fungsi pada views.py untuk meng-_handle_ request yang diterima dari form. Di dalam fungsi tersebut dapat disesuaikan operasi apa yang akan dilakukan kepada database, misal menambah data, mengupdate data, dll. Data input dari form bisa didapat dengan request.POST.get(nama_field).
 
-### **3. Alur submisi pengguna melalui HTML Form, penyimpanan data, sampai tampilnya data di template HTML**<br><br>
+### **3. Alur submisi pengguna melalui HTML Form, penyimpanan data, sampai tampilnya data di template HTML**<br>
 Pengguna memasukan data submisi melalui form di HTML. Data-data tersebut akan terkirim melalui method POST dan requestnya akan di-_handle_ oleh fungsi yang sesuai di views.py. Pada views, data-data submisi tersebut diambil dan divalidasi, termasuk mekanisme pencegahan CSRF. Apabila datanya valid, data disimpan ke database (atau bisa juga diolah terlebih dahulu sesuai kebutuhan). Views tersebut akan melakukan _redirect_ atau pengalihan akses langsung ke fungsi yang akan menampilkan data-data di HTML. Karena data submisi telah tersimpan di database, ketika fungsi views mengambil data dari database, data tersebut akan terambil dan bisa dirender ke dalam template HTML. Dengan demikian, data submisi yang baru saja dimasukan pengguna dapat langsung ditampilkan di halaman HTML.
 
 ### **4. Cara Implementasi _Checklist_**<br>
