@@ -42,6 +42,13 @@ def logout_user(request):
 def show_todolist(request):
     username = request.user
     todolist = Task.objects.filter(user=username)
+    
+    for todo in todolist {
+        if todo.is_finished == True:
+            todo.is_finished = 'Selesai'
+        else:
+            todo.is_finished = 'Belum Selesai'
+    }
 
     context = {
         "todolist": todolist,
