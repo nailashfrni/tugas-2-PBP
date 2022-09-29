@@ -5,12 +5,11 @@
 
  {% block content %}
 
+<div class="center-page">
   <h1>To-do List</h1>
 
-  <h4>Username: {{ username }}</h4>
-
-  <button style="color: white; text-decoration: none;"><a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a></button>
-  <br><br>
+  <h2>Username: {{ username }}</h2>
+  <br>
 
   {% if messages %}  
       {% for message in messages %}  
@@ -20,9 +19,12 @@
 
   <table class="pretty-table">
     <thead>
-      <th>Tanggal</th>
-      <th>Judul Task</th>
-      <th>Deskripsi Task</th>
+      <th>DATE</th>
+      <th>TITLE</th>
+      <th>DESCRIPTION</th>
+      <th>FINISHED</th>
+      <th>UPDATE</th>
+      <th>DELETE</th>
     </thead>
     <tbody>
       {% comment %} Add the data below this line {% endcomment %}
@@ -31,10 +33,17 @@
               <th>{{todo.date}}</th>
               <th>{{todo.title}}</th>
               <th>{{todo.description}}</th>
+              <th>{{todo.is_finished}}</th>
+              <th><a href="{% url 'todolist:update_task' todo.id %}">Update</a></th>
+              <th><a href="{% url 'todolist:delete_task' todo.id %}">Delete</a></th>
           </tr>
       {% endfor %}
     </tbody>
   </table><br>
-  <button style="color: white; text-decoration: none;"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+  <button style="color: white; text-decoration: none;">
+    <a class="link" href="{% url 'todolist:create_task' %}">Tambah Task Baru</a>
+  </button><br><br>
+  <button style="background-color: #ff3333;"><a class="link" href="{% url 'todolist:logout' %}">Logout</a></button>
+</div>
 
  {% endblock content %}
