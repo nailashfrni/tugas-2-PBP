@@ -47,3 +47,83 @@ Saya melakukan push berkas-berkas ke GitHub dan secara otomatis Heroku akan mela
 ## Referensi
 - Slide Form, Authentication, Session, and Cookie PBP Ganjil 2022/2023
 - https://portswigger.net/web-security/csrf
+
+<br>
+
+# Tugas 5 PBP: To-do List ~ Web Design Using HTML, CSS, and CSS Framework
+
+## Questions
+
+### **Perbedaan Inline, Internal, dan External CSS**<br>
+|Perbedaan|Inline|Internal|External|
+|--------|--------|--------|--------|
+|Peletakan CSS|Ditulis langsung pada atribut elemen HTML|Ditulis di dalam berkas HTML|Ditulis di file CSS terpisah, di luar file HTML|
+| Kelebihan | Sangat berguna jika ingin melihat perubahan style satu elemen|Hanya dapat mengatur style pada satu halaman saja|Struktur HTML lebih rapi karena tidak tercampur dengan styling|
+| | Memiliki bobot yang tertinggi sehingga perubahan style dapat langsung terdeteksi|File yang dibuat lebih sedikit karena HTML dan CSS digabung di dalam file yang sama|Loading website lebih cepat|
+| | Proses request HTTP lebih kecil sehingga website dapat diload lebih cepat|Class dan ID dapat digunakan oleh internal stylesheet|Dapat mengatur CSS pada beberapa halaman sekaligus
+|Kekurangan|CSS hanya bisa diterapkan pada satu elemen sehingga tidak efisien|Tidak efisien jika menggunakan CSS yang sama pada beberapa halaman|Web akan menjadi berantakan apabila file CSS tidak berhasil diload|
+|||Performa web menjadi lebih lambat karena akan loading ulang CSS setiap berganti halaman|
+
+### **Tag HTML5 yang diketahui**<br>
+- `<a>` untuk membuat anchor atau link 
+- `<body>` menspesifikasi body dari halaman HTML
+- `<br>` menyisipkan sebuah _line break_
+- `<button>` menspesifikasikan button
+- `<div>` menspefisikasikan section pada suatu halaman
+- `<b>` membuat text yang bold atau tebal
+- `<i>` membuat text yang italic (miring)
+- `<form>` menspesifikasikan form dalam halaman
+- `<h1> - <h6>` untuk membuat header, dimana h1 berukuran paling besar dan h6 paling kecil
+- `<img>` menyisipkan gambar
+- `<label>` menspesifikasikan label pada suatu form control
+- `<p>` menspesifikasikan paragraf
+- `<table>` menspesifikasikan table
+
+### **Tipe-tipe CSS selector**<br>
+1. Universal selector (*)<br>
+Selector untuk memilih semua elemen pada HTML.
+Syntax: `*`, `ns|*`, `*|*`
+
+2. Type selector<br>
+Memiliih semua elemen dengan node tertentu. Syntax: `namaelemen`.<br>
+Contoh: `p` akan match dengan semua elemen `<p>`.
+
+3. Class selector<br>
+Memilih semua elemen dengan atribut class tertentu. Syntax: `.namaclass`.<br>
+Contoh: `.btn` akan match dengan semua elemen yang mempunyai atribut `class="btn"`.
+
+4. ID selector<br>
+Memilih semua elemen dengan atribut ID tertentu. Syntax: `#namaID`.<br>
+Contoh: `#tombol-submit` akan match dengan semua elemen yang mempunyai atribut `id="tombol-submit"`.
+
+5. Attribute selector<br>
+Memilih semua elemen yang memiliki atribut tertentu.
+Contoh: `[autoplay]` akan match dengan semua elemen yang memiliki atribut `autoplay`.
+
+5. Grouping Selector
+    - Selector list `,` adalah metode grouping beberapa node, dimana akan memilih semua elemen yang match. Contoh: `div, span` akan match dengan semua elemen `<div>` dan `<span>`.
+
+    - Selector `" "` akan menyeleksi semua node yang merupakan keturunan dari elemen pertama. Contoh: `div span` akan match dengan semua elemen `<span>` yang ada di dalam elemen `<div>`.
+
+    - `>` combinator akan memilih node yang merupakan anak langsung dari elemen pertama. Contoh: `tr > td` akan match dengan semua elemen `<td>` yang merupakan anak langsung dari elemen `<tr>`.
+
+    - `A ~ B` akan memilih semua elemen B yang diikuti oleh elemen A (langsung ataupun tidak), dan memiliki parent yang sama.
+
+    - `A + B` akan match semua elemen B yang langsung diikuti oleh elemen A.
+
+    - `A || B` akan match semua elemen B yang berada di dalam scope A.
+
+6. Pseudo classes
+    `:` memilih elemen berdasarkan informasi status. Contoh: `a:hover` akan match dengan semua elemen `<a>` saat cursor berada di atasnya.
+
+7. Pseudo-elements
+    Contoh: `p::first-line` akan match dengan baris pertama pada semua elemen `<p>`.
+
+### **Implementasi _Checklist_**<br>
+1. Setting up pada template base.html agar dapat menggunakan komponen bootstrap.
+2. Melakukan styling semua elemen HTML dengan memanfaatkan class bootstrap, dengan kombinasi inline, internal, dan external CSS.
+3. Kerap kali saya juga mencari inspirasi template melalui internet.
+
+## Referensi
+- https://idwebhost.com/blog/css-adalah-perbedaan-internal-css-external-css-inline-css/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=id

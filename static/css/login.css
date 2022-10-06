@@ -1,0 +1,29 @@
+.container {
+    background-color: white;
+    margin-top: 5%;
+    margin: auto;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+h1 {
+    color: #2e295c;
+}
+
+#submit {
+    background-color: #494194;
+}
+
+#submit:hover {
+    background-color: #2e295c;
+}
+
+input {
+    margin-bottom: 30px;
+}
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1550537687-c91072c4792d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+    text-align: center;
+    min-height: 100vh;
+}

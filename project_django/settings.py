@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'katalog',
     'mywatchlist',
     'todolist',
+    'bootstrap3',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [

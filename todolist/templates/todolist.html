@@ -1,14 +1,88 @@
 {% extends 'base.html' %}
+{% load static %}
+
  {% block meta %}
   <title>To-do List</title>
+  <link rel="stylesheet" href="{% static 'css/todolist.css' %}">
+  <link href="http://fonts.cdnfonts.com/css/miracle" rel="stylesheet">
+  <link href="http://fonts.cdnfonts.com/css/shiny-flakes" rel="stylesheet">
+  <style>
+    h1 {
+      font-family: 'Miracle', sans-serif;
+      font-size: 50px;
+      color: rgb(107, 60, 60);
+      text-shadow: 2px 2px #e0a458;
+      text-align: center;
+    }
+
+    h4 {
+      font-family: 'Shiny Flakes', sans-serif;
+      font-size: 40px;
+    }
+
+    div.card:hover {
+      transition: all 0.25s ease-out;
+      transform:scale(1.1);
+    }
+    
+    body {
+      font-family: sans-serif;
+      font-size: smaller;
+      background-image: repeating-linear-gradient(#a9d1ff, #f0bfe8, #6d7df5);
+      text-align: center;
+      padding-bottom: 3%;
+      min-height: 100vh;
+      align-content: center;
+    }
+
+    button {
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        padding: 16px 16px;
+        border-radius: 0.25rem;
+        color: white;
+        margin: 20px;
+    }
+
+    button:hover {
+        transition: all 0.2s ease-out;
+        transform:scale(1.1);
+    }
+
+    #submit {
+        background-color: #6158b4;
+    }
+
+    #submit:hover {
+        background-color: #2a245a;
+    }
+
+    a {
+        font-size: 14px;
+        line-height: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #082cf7;
+    }
+
+    .link {
+        text-align: center;
+        color: #fff;
+    }
+
+    .link:hover {
+      color: white;
+    }
+  </style>
  {% endblock meta %}
 
  {% block content %}
 
-<div class="center-page">
-  <h1>To-do List</h1>
+<div class="center-page container">
+  <h1 class="mt-5">TO-DO LIST</h1>
 
-  <h2>Username: {{ username }}</h2>
+  <h4 class="username">Username: {{ username }}</h4>
   <br>
 
   {% if messages %}  
@@ -17,33 +91,30 @@
       {% endfor %}  
     {% endif %}
 
-  <table class="pretty-table">
-    <thead>
-      <th>DATE</th>
-      <th>TITLE</th>
-      <th>DESCRIPTION</th>
-      <th>FINISHED</th>
-      <th>UPDATE</th>
-      <th>DELETE</th>
-    </thead>
-    <tbody>
+  <div class="container-xl">
+    <div class="row ros-cols-1 row-cols-md-3 g-4 justify-content-center">
       {% comment %} Add the data below this line {% endcomment %}
       {% for todo in todolist %}
-          <tr>
-              <th>{{todo.date}}</th>
-              <th>{{todo.title}}</th>
-              <th>{{todo.description}}</th>
-              <th>{{todo.is_finished}}</th>
-              <th><a href="{% url 'todolist:update_task' todo.id %}">Update</a></th>
-              <th><a href="{% url 'todolist:delete_task' todo.id %}">Delete</a></th>
-          </tr>
+        <div class="col">
+          <div class="card m-auto mb-4 shadow bg-body rounded" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><b>{{ todo.title }}</b></h5>
+              <hr>
+              <p class="card-subtitle mb-2" style="color: #2a6127;">{{ todo.is_finished }}</p>
+              <h6 class="card-text">{{ todo.description }}</h6><br>
+              <p class="card-subtitle mb-2 text-muted">Created at {{ todo.date }}</p>
+              <a class="btn btn-success" href="{% url 'todolist:update_task' todo.id %}">UPDATE</a>
+              <a class="btn btn-danger" href="{% url 'todolist:delete_task' todo.id %}">DELETE</a>
+            </div>
+            </div>
+        </div>
       {% endfor %}
-    </tbody>
-  </table><br>
-  <button style="color: white; text-decoration: none;">
-    <a class="link" href="{% url 'todolist:create_task' %}">Tambah Task Baru</a>
+    </div>
+  </div>
+  <button id="submit" class="btn btn-primary mt-5 mb-0 shadow-sm rounded" style="color: white; text-decoration: none;">
+    <a class="link" href="{% url 'todolist:create_task' %}">CREATE NEW TASK</a>
   </button><br><br>
-  <button style="background-color: #ff3333;"><a class="link" href="{% url 'todolist:logout' %}">Logout</a></button>
+  <button id="submit" class="btn btn-primary shadow-sm rounded"><a class="link" href="{% url 'todolist:logout' %}">LOGOUT</a></button>
 </div>
 
  {% endblock content %}
