@@ -75,6 +75,67 @@
       color: white;
     }
   </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    // define function for add todo card
+    const addCard = todo => {
+      if (todo.fields.is_finished) {
+        todo.fields.is_finished = "Selesai";
+      } else {
+        todo.fields.is_finished = "Belum Selesai";
+      }
+        $(".row").append(`
+        <div class="col" id="task-${todo.pk}">
+        <div class="card m-auto mb-4 shadow bg-body rounded" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><b>${ todo.fields.title }</b></h5>
+            <hr>
+            <p class="card-subtitle mb-2" style="color: #2a6127;">${ todo.fields.is_finished }</p>
+            <h6 class="card-text">${ todo.fields.description }</h6><br>
+            <p class="card-subtitle mb-2 text-muted">Created at ${ todo.fields.date }</p>
+            <a class="btn btn-success" href="update-task/${todo.pk}">UPDATE</a>
+            <button class="btn btn-danger" onclick=deleteTask(${todo.pk})>DELETE</button>
+          </div>
+          </div>
+        </div>`);
+    }
+    
+    // get data json
+    $.getJSON( 'json/', function( data ) {
+          data.forEach(element => {
+            addCard(element);
+          });
+      });
+
+    // function handler for add task asynchronously
+    var addTask = function() {
+        var formData = $("#add-task").serialize();
+
+        if ($("#title").val() && $("#description").val()) { // ensure the form is filled
+          $.ajax({
+            type: "POST",
+            url: "add/",
+            data: formData,
+            dataType: "json",
+            encode: true,
+          }).done(function (data) {
+            addCard(data);
+            $("#add-task").trigger("reset");
+          })
+        }
+      }
+
+    var deleteTask = function(pk) {
+      $.ajax({
+            type: "DELETE",
+            headers: { "X-CSRFToken": document.getElementsByName("csrfmiddlewaretoken")[0].value },
+            url: "{% url 'todolist:delete_task_ajax' 1 %}".replace(1, pk),
+            encode: true,
+          }).done(function (data) {
+              $(`#task-${pk}`).remove();
+          })
+    }
+  </script>
  {% endblock meta %}
 
  {% block content %}
@@ -92,28 +153,37 @@
     {% endif %}
 
   <div class="container-xl">
-    <div class="row ros-cols-1 row-cols-md-3 g-4 justify-content-center">
-      {% comment %} Add the data below this line {% endcomment %}
-      {% for todo in todolist %}
-        <div class="col">
-          <div class="card m-auto mb-4 shadow bg-body rounded" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"><b>{{ todo.title }}</b></h5>
-              <hr>
-              <p class="card-subtitle mb-2" style="color: #2a6127;">{{ todo.is_finished }}</p>
-              <h6 class="card-text">{{ todo.description }}</h6><br>
-              <p class="card-subtitle mb-2 text-muted">Created at {{ todo.date }}</p>
-              <a class="btn btn-success" href="{% url 'todolist:update_task' todo.id %}">UPDATE</a>
-              <a class="btn btn-danger" href="{% url 'todolist:delete_task' todo.id %}">DELETE</a>
-            </div>
-            </div>
-        </div>
-      {% endfor %}
+    <div class="row rows-cols-1 row-cols-md-3 g-4 justify-content-center">
     </div>
   </div>
-  <button id="submit" class="btn btn-primary mt-5 mb-0 shadow-sm rounded" style="color: white; text-decoration: none;">
-    <a class="link" href="{% url 'todolist:create_task' %}">CREATE NEW TASK</a>
-  </button><br><br>
+  
+  <button id="submit" class="btn btn-primary mt-5 mb-0 shadow-sm rounded" style="color: white; text-decoration: none;"
+  data-bs-toggle="modal" data-bs-target="#addModal">
+      CREATE NEW TASK
+  </button>
+  <!-- Vertically centered modal -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create New Task</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="add-task" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" id="title" name="title" placeholder="Title" class="form-control" maxlength="255" required="" id="id_title"><br>
+            <textarea name="description" id="description" cols="40" rows="10" placeholder="Description" class="form-control" required="" id="id_description"></textarea>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="add-btn" onclick="addTask()" class="link btn btn-primary" data-bs-dismiss="modal" name="submit">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
   <button id="submit" class="btn btn-primary shadow-sm rounded"><a class="link" href="{% url 'todolist:logout' %}">LOGOUT</a></button>
 </div>
 
