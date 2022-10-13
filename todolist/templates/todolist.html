@@ -20,6 +20,10 @@
       font-size: 40px;
     }
 
+    div.card {
+      height: 100%;
+    }
+
     div.card:hover {
       transition: all 0.25s ease-out;
       transform:scale(1.1);
@@ -43,11 +47,6 @@
         border-radius: 0.25rem;
         color: white;
         margin: 20px;
-    }
-
-    button:hover {
-        transition: all 0.2s ease-out;
-        transform:scale(1.1);
     }
 
     #submit {
@@ -92,9 +91,13 @@
             <hr>
             <p class="card-subtitle mb-2" style="color: #2a6127;">${ todo.fields.is_finished }</p>
             <h6 class="card-text">${ todo.fields.description }</h6><br>
-            <p class="card-subtitle mb-2 text-muted">Created at ${ todo.fields.date }</p>
-            <a class="btn btn-success" href="update-task/${todo.pk}">UPDATE</a>
-            <button class="btn btn-danger" onclick=deleteTask(${todo.pk})>DELETE</button>
+            <p class="card-subtitle text-muted">Created at ${ todo.fields.date }</p>
+          </div>
+          <div class="card-footer">
+            <div class="container m-auto p-auto">
+              <a class="btn btn-success m-auto mx-2" href="update-task/${todo.pk}">UPDATE</a>
+              <button class="btn btn-danger m-auto mx-2" onclick=deleteTask(${todo.pk})>DELETE</button>
+            </div>
           </div>
           </div>
         </div>`);
