@@ -10,7 +10,7 @@
 Paradigma _event-driven programming_ adalah paradigma yang berfokus pada event yang terjadi dalam suatu program. Event tersebut akan mengatur alur dari program, dimana setiap event memiliki handler masing-masing. Saat programnya mulai, handler akan bersiap menerima event, sehingga saat event terjadi, handler tersebut baru akan mengeksekusi sesuai event yang didapatnya.
 
 ### **3. Penerapan _asynchronous programming_ pada AJAX**<br>
-AJAX (Asynchronous Javascript & XML) adalah suatu teknik atau teknologi yang memungkinkan pengiriman request secara asinkronus. _Asynchronous programming_ pada AJAX dapat dilakukan melalui method jQuery $.ajax() yang mengirimkan request di background sehingga pengguna masih bisa melakukan hal lain, tanpa perlu menunggu request selesai diproses. Method tersebut menerima parameter seperti url yang akan diakses, HTTP Method yang digunakan, data yang akan dikirimkan, dll. Terdapat juga method jQuery lain yang mengimplementasikan AJAX seperti $.get() dan $.post().
+AJAX (Asynchronous Javascript & XML) adalah suatu teknik atau teknologi yang memungkinkan pengiriman request secara asinkronus. _Asynchronous programming_ pada AJAX dapat dilakukan melalui method jQuery `$.ajax()` yang mengirimkan request di background sehingga pengguna masih bisa melakukan hal lain, tanpa perlu menunggu request selesai diproses. Method tersebut menerima parameter seperti url yang akan diakses, HTTP Method yang digunakan, data yang akan dikirimkan, dll. Terdapat juga method jQuery lain yang mengimplementasikan AJAX seperti `$.get()` dan `$.post()`.
 
 ### **4. Cara Implementasi _Checklist_**<br>
 1. Membuat views baru untuk menampilkan data todolist berbentuk json sesuai user yang sedang login, tambahkan pula path baru di urls.py agar dapat diakses
